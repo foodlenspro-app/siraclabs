@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sirac Labs — Code That Illuminates</title>
+<meta property="og:title" content="Sirac Labs — AI-Powered Digital Solutions">
+<meta property="og:description" content="Mobile apps, custom software, data science, AI chatbots. Built by Adem Keklik.">
+<meta property="og:url" content="https://siraclabs.com">
+<meta property="og:type" content="website">
+<meta name="description" content="AI-powered mobile apps, custom software development, data science, and web solutions by Sirac Labs.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,600&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0a0908;
+  --bg2: #141210;
+  --card: #1c1915;
+  --accent: #d4af37;
+  --accent-glow: #f0c954;
+  --accent2: #e8a87c;
+  --text: #f5f1e8;
+  --text2: #a39b8c;
+  --text3: #6b6357;
+  --border: rgba(212, 175, 55, 0.12);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); overflow-x: hidden; line-height: 1.6; }
+
+/* === NAV === */
+nav {
+  position: fixed; top: 0; width: 100%; z-index: 100;
+  background: rgba(10, 9, 8, 0.8); backdrop-filter: blur(24px);
+  border-bottom: 1px solid var(--border);
+  padding: 18px 0;
+}
+.nav-inner {
+  max-width: 1200px; margin: 0 auto; padding: 0 28px;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.logo { 
+  font-family: 'Fraunces', serif; font-size: 22px; font-weight: 700; 
+  color: var(--text); text-decoration: none; letter-spacing: -0.5px;
+  display: flex; align-items: center; gap: 10px;
+}
+.logo-mark {
+  width: 32px; height: 32px; display: inline-flex; align-items: center; justify-content: center;
+  position: relative;
+}
+.logo-mark svg { width: 100%; height: 100%; }
+.logo span { color: var(--accent); font-style: italic; font-weight: 400; }
+.nav-links { display: flex; gap: 36px; list-style: none; }
+.nav-links a { color: var(--text2); text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.3s; letter-spacing: 0.2px; }
+.nav-links a:hover { color: var(--accent); }
+.nav-toggle { display: none; background: none; border: none; color: var(--text); font-size: 24px; cursor: pointer; }
+
+/* === HERO === */
+.hero {
+  min-height: 100vh; display: flex; align-items: center; justify-content: center;
+  text-align: center; padding: 140px 24px 100px;
+  background: 
+    radial-gradient(ellipse 80% 50% at 50% 0%, rgba(212, 175, 55, 0.08) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 80% 70%, rgba(232, 168, 124, 0.04) 0%, transparent 60%),
+    var(--bg);
+  position: relative;
+}
+.hero::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  background-image: 
+    linear-gradient(rgba(212, 175, 55, 0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(212, 175, 55, 0.015) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+}
+.hero::after {
+  content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 150px;
+  background: linear-gradient(to bottom, transparent, var(--bg2));
+  pointer-events: none;
+}
+.hero-content { max-width: 860px; position: relative; z-index: 1; }
+
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 8px 18px; border-radius: 100px;
+  background: rgba(212, 175, 55, 0.08); border: 1px solid rgba(212, 175, 55, 0.2);
+  font-size: 12px; color: var(--accent); margin-bottom: 32px; 
+  font-family: 'JetBrains Mono', monospace; letter-spacing: 1.5px; text-transform: uppercase;
+  animation: fadeDown 0.8s ease;
+}
+.hero-badge .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 10px var(--accent); animation: pulse 2s infinite; }
+
+.hero h1 {
+  font-family: 'Fraunces', serif; font-size: clamp(44px, 8vw, 84px);
+  font-weight: 400; line-height: 1.02; margin-bottom: 28px; letter-spacing: -2px;
+  animation: fadeDown 0.9s ease 0.1s both;
+}
+.hero h1 em { font-style: italic; color: var(--accent); font-weight: 300; }
+.hero h1 .accent-gold { color: var(--accent); }
+
+.hero-subtitle {
+  font-size: 17px; color: var(--text2); line-height: 1.7; 
+  margin-bottom: 12px; max-width: 620px; margin-left: auto; margin-right: auto;
+  animation: fadeDown 0.9s ease 0.2s both;
+}
+
+.hero-arabic {
+  font-family: 'Fraunces', serif; font-size: 14px; color: var(--text3);
+  margin-bottom: 40px; font-style: italic; letter-spacing: 0.5px;
+  animation: fadeDown 0.9s ease 0.25s both;
+}
+
+.hero-buttons { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; animation: fadeDown 0.9s ease 0.3s both; }
+.btn {
+  padding: 14px 28px; border-radius: 6px; text-decoration: none; font-weight: 500;
+  font-size: 14px; transition: all 0.3s; display: inline-flex; align-items: center; gap: 8px;
+  letter-spacing: 0.3px;
+}
+.btn-primary { background: var(--accent); color: #0a0908; }
+.btn-primary:hover { background: var(--accent-glow); transform: translateY(-1px); box-shadow: 0 8px 30px rgba(212, 175, 55, 0.25); }
+.btn-outline { background: transparent; color: var(--text); border: 1px solid rgba(255,255,255,0.12); }
+.btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+
+/* === SECTIONS === */
+section { padding: 120px 24px; position: relative; }
+.container { max-width: 1200px; margin: 0 auto; }
+
+.section-header { margin-bottom: 72px; }
+.section-label {
+  display: inline-flex; align-items: center; gap: 12px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px; text-transform: uppercase; letter-spacing: 2.5px;
+  color: var(--accent); font-weight: 500; margin-bottom: 16px;
+}
+.section-label::before {
+  content: ''; width: 24px; height: 1px; background: var(--accent);
+}
+.section-title {
+  font-family: 'Fraunces', serif; font-size: clamp(32px, 5vw, 52px);
+  font-weight: 400; margin-bottom: 20px; line-height: 1.1; letter-spacing: -1px;
+}
+.section-title em { font-style: italic; color: var(--accent); font-weight: 300; }
+.section-desc { color: var(--text2); font-size: 17px; max-width: 640px; line-height: 1.7; }
+
+/* === APPS === */
+#apps { background: var(--bg2); }
+.apps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 28px; }
+.app-card {
+  background: var(--card); border-radius: 14px; padding: 36px 32px;
+  border: 1px solid var(--border);
+  transition: all 0.5s; position: relative; overflow: hidden;
+}
+.app-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent); opacity: 0;
+  transition: opacity 0.5s;
+}
+.app-card:hover { transform: translateY(-3px); border-color: rgba(212, 175, 55, 0.3); }
+.app-card:hover::before { opacity: 1; }
+
+.app-header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 20px; }
+.app-icon { 
+  width: 48px; height: 48px; border-radius: 10px; 
+  background: rgba(212, 175, 55, 0.08); border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 24px;
+}
+.app-tag {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 4px 10px; border-radius: 100px; font-size: 10px;
+  font-weight: 600; text-transform: uppercase; letter-spacing: 1.2px;
+  font-family: 'JetBrains Mono', monospace;
+}
+.tag-live { background: rgba(212, 175, 55, 0.1); color: var(--accent); border: 1px solid rgba(212, 175, 55, 0.2); }
+.tag-live::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 6px var(--accent); }
+.tag-dev { background: rgba(232, 168, 124, 0.08); color: var(--accent2); border: 1px solid rgba(232, 168, 124, 0.2); }
+
+.app-card h3 { font-family: 'Fraunces', serif; font-size: 26px; margin-bottom: 12px; font-weight: 500; letter-spacing: -0.5px; }
+.app-card p { color: var(--text2); font-size: 14px; line-height: 1.7; margin-bottom: 22px; }
+.app-video { margin-bottom: 22px; border-radius: 8px; overflow: hidden; border: 1px solid var(--border); }
+.app-video iframe { display: block; width: 100%; height: 200px; }
+.app-link { 
+  color: var(--accent); text-decoration: none; font-weight: 500; 
+  font-size: 13px; display: inline-flex; align-items: center; gap: 8px;
+  font-family: 'JetBrains Mono', monospace; letter-spacing: 0.5px; text-transform: uppercase;
+  padding-top: 16px; border-top: 1px solid var(--border); width: 100%;
+  transition: all 0.3s;
+}
+.app-link:hover { gap: 14px; color: var(--accent-glow); }
+
+/* === SERVICES === */
+.services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
+.service-card {
+  padding: 36px 30px; border-radius: 12px;
+  background: var(--card);
+  border: 1px solid var(--border); transition: all 0.4s;
+  position: relative;
+}
+.service-card:hover { border-color: rgba(212, 175, 55, 0.25); transform: translateY(-2px); }
+.service-number {
+  font-family: 'JetBrains Mono', monospace; font-size: 11px;
+  color: var(--text3); letter-spacing: 1px; margin-bottom: 16px;
+}
+.service-icon {
+  width: 48px; height: 48px; border-radius: 10px; display: flex; align-items: center; justify-content: center;
+  font-size: 22px; margin-bottom: 20px; 
+  background: rgba(212, 175, 55, 0.06); border: 1px solid var(--border);
+}
+.service-card h3 { 
+  font-family: 'Fraunces', serif; font-size: 22px; font-weight: 500; 
+  margin-bottom: 10px; letter-spacing: -0.3px;
+}
+.service-card p { color: var(--text2); font-size: 14px; line-height: 1.7; }
+
+/* === TECH === */
+#tech { background: var(--bg2); }
+.tech-grid { display: flex; flex-wrap: wrap; gap: 10px; max-width: 900px; }
+.tech-pill {
+  padding: 9px 18px; border-radius: 100px; font-size: 12px; font-weight: 500;
+  background: var(--card); border: 1px solid var(--border); color: var(--text2);
+  transition: all 0.3s; font-family: 'JetBrains Mono', monospace; letter-spacing: 0.3px;
+}
+.tech-pill:hover { border-color: var(--accent); color: var(--accent); }
+
+/* === CONTACT === */
+.contact-box {
+  background: linear-gradient(145deg, rgba(212, 175, 55, 0.06), rgba(232, 168, 124, 0.02));
+  border: 1px solid rgba(212, 175, 55, 0.18); border-radius: 16px;
+  padding: 72px 56px; text-align: center; max-width: 760px; margin: 0 auto;
+  position: relative; overflow: hidden;
+}
+.contact-box::before {
+  content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.06) 0%, transparent 40%);
+  pointer-events: none;
+}
+.contact-label {
+  font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 2.5px;
+  color: var(--accent); text-transform: uppercase; margin-bottom: 20px; position: relative;
+}
+.contact-box h3 { 
+  font-family: 'Fraunces', serif; font-size: 40px; margin-bottom: 18px; 
+  font-weight: 400; letter-spacing: -1px; position: relative;
+}
+.contact-box h3 em { font-style: italic; color: var(--accent); font-weight: 300; }
+.contact-box p { color: var(--text2); margin-bottom: 40px; line-height: 1.7; font-size: 16px; position: relative; }
+.contact-links { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; position: relative; }
+.contact-link {
+  padding: 13px 28px; border-radius: 8px; text-decoration: none; font-weight: 500; font-size: 13px;
+  background: var(--card); color: var(--text); border: 1px solid var(--border);
+  transition: all 0.3s; display: inline-flex; align-items: center; gap: 10px;
+  font-family: 'JetBrains Mono', monospace; letter-spacing: 0.5px;
+}
+.contact-link:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-1px); }
+
+/* === FOOTER === */
+footer {
+  padding: 50px 24px 40px; text-align: center;
+  border-top: 1px solid var(--border);
+}
+.footer-logo { 
+  font-family: 'Fraunces', serif; font-size: 20px; font-weight: 600; 
+  color: var(--text); margin-bottom: 8px;
+}
+.footer-logo span { color: var(--accent); font-style: italic; font-weight: 400; }
+.footer-tagline {
+  font-family: 'JetBrains Mono', monospace; font-size: 11px; 
+  color: var(--text3); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 24px;
+}
+footer p { color: var(--text3); font-size: 13px; }
+footer a { color: var(--accent); text-decoration: none; }
+
+/* === ANIMATIONS === */
+@keyframes fadeDown { 
+  from { opacity: 0; transform: translateY(16px); } 
+  to { opacity: 1; transform: translateY(0); } 
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  .nav-links { display: none; position: absolute; top: 64px; left: 0; right: 0; background: var(--bg); flex-direction: column; padding: 24px; gap: 20px; border-bottom: 1px solid var(--border); }
+  .nav-links.active { display: flex; }
+  .nav-toggle { display: block; }
+  .hero { padding: 120px 20px 80px; }
+  .hero-buttons { flex-direction: column; align-items: stretch; }
+  .btn { justify-content: center; }
+  section { padding: 80px 20px; }
+  .section-header { margin-bottom: 48px; }
+  .contact-box { padding: 48px 28px; }
+  .contact-box h3 { font-size: 30px; }
+  .apps-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="logo">
+      <span class="logo-mark">
+        <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <radialGradient id="lanternGlow" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#f0c954" stop-opacity="1"/>
+              <stop offset="100%" stop-color="#d4af37" stop-opacity="0.6"/>
+            </radialGradient>
+          </defs>
+          <!-- Lantern top -->
+          <path d="M12 4 L20 4 L19 7 L13 7 Z" fill="none" stroke="#d4af37" stroke-width="1.5" stroke-linejoin="round"/>
+          <!-- Lantern body -->
+          <rect x="10" y="8" width="12" height="16" rx="2" fill="none" stroke="#d4af37" stroke-width="1.5"/>
+          <!-- Glow inside -->
+          <circle cx="16" cy="16" r="4" fill="url(#lanternGlow)"/>
+          <!-- Light rays -->
+          <line x1="10" y1="16" x2="7" y2="16" stroke="#d4af37" stroke-width="1" opacity="0.5"/>
+          <line x1="22" y1="16" x2="25" y2="16" stroke="#d4af37" stroke-width="1" opacity="0.5"/>
+          <!-- Lantern bottom -->
+          <rect x="12" y="24" width="8" height="2" fill="#d4af37"/>
+          <rect x="14" y="26" width="4" height="2" fill="#d4af37"/>
+        </svg>
+      </span>
+      Sirac<span>Labs</span>
+    </a>
+    <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('active')">☰</button>
+    <ul class="nav-links">
+      <li><a href="#apps">Apps</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#tech">Technology</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-badge">
+      <span class="dot"></span>
+      <span>AI-Powered Digital Solutions</span>
+    </div>
+    <h1>Code that <em>illuminates.</em><br>Apps that <span class="accent-gold">inspire.</span></h1>
+    <p class="hero-subtitle">Mobile applications powered by artificial intelligence. Custom software development. Data science consulting. From concept to production — we bring your vision to light.</p>
+    <p class="hero-arabic">— Sirâc · سِرَاج · the lantern that guides —</p>
+    <div class="hero-buttons">
+      <a href="#apps" class="btn btn-primary">Explore Our Work →</a>
+      <a href="#contact" class="btn btn-outline">Start a Project</a>
+    </div>
+  </div>
+</section>
+
+<!-- APPS -->
+<section id="apps">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label">Our Products</div>
+      <h2 class="section-title">AI Apps, <em>live on Google Play</em></h2>
+      <p class="section-desc">Health and nutrition applications powered by artificial intelligence. Built with care, designed to make everyday life easier. Free to download.</p>
+    </div>
+    <div class="apps-grid">
+
+      <div class="app-card">
+        <div class="app-header">
+          <div class="app-icon">📸</div>
+          <span class="app-tag tag-live">Live · Global</span>
+        </div>
+        <h3>NutriSnap AI</h3>
+        <p>Snap a photo of your food — AI instantly calculates calories, protein, carbs, and fat. Personal calorie targets, smart water tracking, and daily AI nutrition guidance. Available worldwide in English.</p>
+        <div class="app-video"><iframe src="https://www.youtube.com/embed/1DDNcvnGE78" frameborder="0" allowfullscreen></iframe></div>
+        <a href="https://play.google.com/store/apps/details?id=com.codelantern.nutrisnap" class="app-link" target="_blank">Download Free →</a>
+      </div>
+
+      <div class="app-card">
+        <div class="app-header">
+          <div class="app-icon">🍽️</div>
+          <span class="app-tag tag-live">Live · Türkiye</span>
+        </div>
+        <h3>FoodLens AI</h3>
+        <p>Türk mutfağına özel AI kalori takip uygulaması. 1400+ Türk yemeği veritabanı, fotoğrafla tanıma, kişisel hedefler, akıllı su takibi ve AI beslenme danışmanı. Türkçe tasarlandı.</p>
+        <div class="app-video"><iframe src="https://www.youtube.com/embed/ydEwsih6wr4" frameborder="0" allowfullscreen></iframe></div>
+        <a href="https://play.google.com/store/apps/details?id=com.codelantern.foodlens" class="app-link" target="_blank">Ücretsiz İndir →</a>
+      </div>
+
+      <div class="app-card">
+        <div class="app-header">
+          <div class="app-icon">🔬</div>
+          <span class="app-tag tag-dev">Coming Soon</span>
+        </div>
+        <h3>SkinCheck AI</h3>
+        <p>AI-powered skin analysis app. Take a photo of your skin concern and receive instant AI analysis with personalized recommendations. Professional-grade dermatology insights in your pocket.</p>
+        <a href="#contact" class="app-link">Get Notified →</a>
+      </div>
+
+      <div class="app-card">
+        <div class="app-header">
+          <div class="app-icon">🎓</div>
+          <span class="app-tag tag-dev">Free Coupon</span>
+        </div>
+        <h3>Scratch Programming Course</h3>
+        <p>Learn programming fundamentals with Scratch — perfect for kids, students, and beginners. Visual block-based coding that makes learning fun and intuitive. Normally paid, free with coupon.</p>
+        <p style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--accent);margin:-10px 0 20px;letter-spacing:0.5px">🔑 COUPON: E18F566206DD38F89A96</p>
+        <div class="app-video"><iframe src="https://www.youtube.com/embed/HF9GITAo67M" frameborder="0" allowfullscreen></iframe></div>
+        <a href="https://www.udemy.com/course/programming-fundamentals-training-with-scratch/?couponCode=E18F566206DD38F89A96" class="app-link" target="_blank">Enroll Free →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label">What We Build</div>
+      <h2 class="section-title">Services, <em>crafted with care.</em></h2>
+      <p class="section-desc">End-to-end development services — from concept to deployment. Tailored to your business needs, budget, and timeline.</p>
+    </div>
+    <div class="services-grid">
+
+      <div class="service-card">
+        <div class="service-number">01</div>
+        <div class="service-icon">📱</div>
+        <h3>Custom Mobile Apps</h3>
+        <p>Cross-platform Android & iOS apps built with Flutter. AI integration, payment systems, elegant UI/UX. From health apps to e-commerce — built to your specifications.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-number">02</div>
+        <div class="service-icon">🌐</div>
+        <h3>Website Development</h3>
+        <p>Modern, responsive websites and web applications. Landing pages, corporate sites, dashboards, admin panels. SEO-optimized and mobile-first design.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-number">03</div>
+        <div class="service-icon">🤖</div>
+        <h3>AI Chatbot & LLM Solutions</h3>
+        <p>Custom chatbots powered by GPT-4, Gemini, Claude, and open-source LLMs. RAG systems, knowledge base integration, multilingual support. Deploy on web, WhatsApp, or Telegram.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-number">04</div>
+        <div class="service-icon">📊</div>
+        <h3>Data Science & ML</h3>
+        <p>Revenue forecasting, customer segmentation, demand prediction. PySpark pipelines, LightGBM models, production-grade ML systems. 6+ years enterprise experience.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-number">05</div>
+        <div class="service-icon">👁️</div>
+        <h3>Computer Vision</h3>
+        <p>Object detection (YOLOv8), image classification, OCR, visual AI. From waste classification to food recognition — custom vision models for your use case.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-number">06</div>
+        <div class="service-icon">🏷️</div>
+        <h3>White-Label Apps</h3>
+        <p>License our existing AI app templates for your brand. Nutrition tracking, skin analysis, and more — customized with your branding, deployed to your Play Store account.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- TECH -->
+<section id="tech">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label">Technology Stack</div>
+      <h2 class="section-title">Built on <em>modern</em> foundations.</h2>
+      <p class="section-desc">We work with production-proven technologies that scale reliably and perform beautifully.</p>
+    </div>
+    <div class="tech-grid">
+      <span class="tech-pill">Flutter</span>
+      <span class="tech-pill">Dart</span>
+      <span class="tech-pill">Python</span>
+      <span class="tech-pill">PySpark</span>
+      <span class="tech-pill">TensorFlow</span>
+      <span class="tech-pill">YOLOv8</span>
+      <span class="tech-pill">LightGBM</span>
+      <span class="tech-pill">OpenAI GPT-4</span>
+      <span class="tech-pill">Google Gemini</span>
+      <span class="tech-pill">Claude API</span>
+      <span class="tech-pill">LLaVA / VLMs</span>
+      <span class="tech-pill">RAG Systems</span>
+      <span class="tech-pill">Firebase</span>
+      <span class="tech-pill">Google Cloud</span>
+      <span class="tech-pill">REST APIs</span>
+      <span class="tech-pill">HTML / CSS / JS</span>
+      <span class="tech-pill">React</span>
+      <span class="tech-pill">SQL / NoSQL</span>
+      <span class="tech-pill">Git / CI/CD</span>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="contact-box">
+      <div class="contact-label">Let's Talk</div>
+      <h3>Have a project <em>in mind?</em></h3>
+      <p>Need a custom app, website, or AI solution? Get in touch — we'd love to hear about your idea and provide a free, no-obligation quote.</p>
+      <div class="contact-links">
+        <a href="mailto:hello@siraclabs.com" class="contact-link">✉ hello@siraclabs.com</a>
+        <a href="https://www.linkedin.com/in/adem-keklik-73b01121a" class="contact-link" target="_blank">in LinkedIn</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Sirac<span>Labs</span></div>
+  <div class="footer-tagline">Code that illuminates</div>
+  <p>© 2026 Sirac Labs — AI-Powered Digital Solutions. Built independently by <a href="https://www.linkedin.com/in/adem-keklik-73b01121a" target="_blank">Adem Keklik</a>.</p>
+</footer>
+
+</body>
+</html>
