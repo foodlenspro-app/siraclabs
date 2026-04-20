@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sirac Labs — Code That Illuminates</title>
+<meta property="og:title" content="Sirac Labs — AI-Powered Digital Solutions">
+<meta property="og:description" content="Mobile apps, custom software, data science, AI chatbots.">
+<meta property="og:url" content="https://siraclabs.com">
+<meta property="og:type" content="website">
+<meta name="description" content="AI-powered mobile apps, custom software development, data science, and web solutions by Sirac Labs.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,400;1,9..144,600&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0c1424;
+  --bg2: #142036;
+  --card: #1a2844;
+  --card-hover: #213154;
+  --accent: #00d4b8;
+  --accent-glow: #14e5c8;
+  --accent2: #ffd860;
+  --accent2-glow: #ffe080;
+  --text: #f0f4ff;
+  --text2: #a8b4cc;
+  --text3: #6b7590;
+  --border: rgba(0, 212, 184, 0.15);
+  --border-gold: rgba(255, 216, 96, 0.15);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); overflow-x: hidden; line-height: 1.6; }
+
+[lang-content="tr"] { display: none; }
+html[data-lang="tr"] [lang-content="en"] { display: none; }
+html[data-lang="tr"] [lang-content="tr"] { display: initial; }
+
+nav {
+  position: fixed; top: 0; width: 100%; z-index: 100;
+  background: rgba(12, 20, 36, 0.85); backdrop-filter: blur(24px);
+  border-bottom: 1px solid var(--border);
+  padding: 16px 0;
+}
+.nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 28px; display: flex; justify-content: space-between; align-items: center; }
+.logo { 
+  font-family: 'Fraunces', serif; font-size: 22px; font-weight: 700; 
+  color: var(--text); text-decoration: none; letter-spacing: -0.5px;
+  display: flex; align-items: center; gap: 10px;
+}
+.logo-mark { width: 34px; height: 34px; display: inline-flex; align-items: center; justify-content: center; }
+.logo-mark svg { width: 100%; height: 100%; }
+.logo span { color: var(--accent2); font-style: italic; font-weight: 500; }
+.nav-right { display: flex; align-items: center; gap: 28px; }
+.nav-links { display: flex; gap: 32px; list-style: none; }
+.nav-links a { color: var(--text2); text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.3s; }
+.nav-links a:hover { color: var(--accent); }
+
+.lang-switch { display: flex; background: var(--card); border: 1px solid var(--border); border-radius: 100px; padding: 3px; gap: 0; }
+.lang-btn { background: none; border: none; color: var(--text2); cursor: pointer; padding: 6px 14px; border-radius: 100px; font-size: 12px; font-weight: 600; font-family: 'JetBrains Mono', monospace; letter-spacing: 1px; transition: all 0.3s; }
+.lang-btn.active { background: var(--accent); color: #0c1424; }
+.lang-btn:hover:not(.active) { color: var(--text); }
+
+.nav-toggle { display: none; background: none; border: none; color: var(--text); font-size: 24px; cursor: pointer; }
+
+.hero {
+  min-height: 100vh; display: flex; align-items: center; justify-content: center;
+  text-align: center; padding: 140px 24px 100px;
+  background: 
+    radial-gradient(ellipse 80% 50% at 50% 0%, rgba(0, 212, 184, 0.12) 0%, transparent 55%),
+    radial-gradient(ellipse 60% 40% at 80% 70%, rgba(255, 216, 96, 0.08) 0%, transparent 55%),
+    radial-gradient(ellipse 50% 40% at 20% 80%, rgba(0, 212, 184, 0.06) 0%, transparent 55%),
+    var(--bg);
+  position: relative;
+}
+.hero::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  background-image: linear-gradient(rgba(0, 212, 184, 0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 212, 184, 0.025) 1px, transparent 1px);
+  background-size: 48px 48px;
+  pointer-events: none;
+  mask-image: radial-gradient(ellipse at center, black 30%, transparent 70%);
+  -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 70%);
+}
+.hero::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 180px; background: linear-gradient(to bottom, transparent, var(--bg)); pointer-events: none; }
+.hero-content { max-width: 880px; position: relative; z-index: 1; }
+
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 8px 20px; border-radius: 100px;
+  background: rgba(0, 212, 184, 0.1); border: 1px solid rgba(0, 212, 184, 0.3);
+  font-size: 12px; color: var(--accent); margin-bottom: 32px; 
+  font-family: 'JetBrains Mono', monospace; letter-spacing: 1.5px; text-transform: uppercase;
+  animation: fadeDown 0.8s ease;
+}
+.hero-badge .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 12px var(--accent); animation: pulse 2s infinite; }
+
+.hero h1 {
+  font-family: 'Fraunces', serif; font-size: clamp(44px, 8vw, 84px);
+  font-weight: 500; line-height: 1.02; margin-bottom: 28px; letter-spacing: -2px;
+  animation: fadeDown 0.9s ease 0.1s both;
+}
+.hero h1 em { font-style: italic; color: var(--accent); font-weight: 400; }
+.hero h1 .accent-gold { color: var(--accent2); font-style: italic; font-weight: 400; }
+
+.hero-subtitle { font-size: 18px; color: var(--text2); line-height: 1.7; margin-bottom: 44px; max-width: 640px; margin-left: auto; margin-right: auto; animation: fadeDown 0.9s ease 0.2s both; }
+
+.hero-buttons { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; animation: fadeDown 0.9s ease 0.3s both; }
+.btn { padding: 15px 30px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 14px; transition: all 0.3s; display: inline-flex; align-items: center; gap: 8px; letter-spacing: 0.3px; }
+.btn-primary { background: var(--accent); color: #0c1424; }
+.btn-primary:hover { background: var(--accent-glow); transform: translateY(-2px); box-shadow: 0 10px 40px rgba(0, 212, 184, 0.35); }
+.btn-outline { background: transparent; color: var(--text); border: 1px solid rgba(255,255,255,0.15); }
+.btn-outline:hover { border-color: var(--accent2); color: var(--accent2); }
+
+section { padding: 120px 24px; position: relative; }
+.container { max-width: 1200px; margin: 0 auto; }
+
+.section-header { margin-bottom: 72px; }
+.section-label { display: inline-flex; align-items: center; gap: 12px; font-family: 'JetBrains Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent); font-weight: 500; margin-bottom: 16px; }
+.section-label::before { content: ''; width: 28px; height: 1px; background: var(--accent); }
+.section-title { font-family: 'Fraunces', serif; font-size: clamp(32px, 5vw, 52px); font-weight: 500; margin-bottom: 20px; line-height: 1.1; letter-spacing: -1px; }
+.section-title em { font-style: italic; color: var(--accent); font-weight: 400; }
+.section-desc { color: var(--text2); font-size: 17px; max-width: 640px; line-height: 1.7; }
+
+#apps { background: var(--bg2); }
+.apps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 28px; }
+.app-card { background: var(--card); border-radius: 16px; padding: 36px 32px; border: 1px solid var(--border); transition: all 0.4s; position: relative; overflow: hidden; }
+.app-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--accent), var(--accent2)); opacity: 0; transition: opacity 0.4s; }
+.app-card:hover { transform: translateY(-4px); background: var(--card-hover); border-color: rgba(0, 212, 184, 0.35); box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3); }
+.app-card:hover::before { opacity: 1; }
+
+.app-header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 22px; }
+.app-icon { width: 52px; height: 52px; border-radius: 12px; background: rgba(0, 212, 184, 0.1); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 26px; }
+.app-tag { display: inline-flex; align-items: center; gap: 6px; padding: 5px 12px; border-radius: 100px; font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.2px; font-family: 'JetBrains Mono', monospace; }
+.tag-live { background: rgba(0, 212, 184, 0.12); color: var(--accent); border: 1px solid rgba(0, 212, 184, 0.25); }
+.tag-live::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 8px var(--accent); }
+.tag-dev { background: rgba(255, 216, 96, 0.1); color: var(--accent2); border: 1px solid var(--border-gold); }
+
+.app-card h3 { font-family: 'Fraunces', serif; font-size: 26px; margin-bottom: 12px; font-weight: 600; letter-spacing: -0.5px; }
+.app-card p { color: var(--text2); font-size: 14.5px; line-height: 1.7; margin-bottom: 22px; }
+.app-video { margin-bottom: 22px; border-radius: 10px; overflow: hidden; border: 1px solid var(--border); }
+.app-video iframe { display: block; width: 100%; height: 200px; }
+.app-coupon { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--accent2); margin: -10px 0 20px; letter-spacing: 0.5px; padding: 10px 14px; background: rgba(255, 216, 96, 0.05); border: 1px dashed var(--border-gold); border-radius: 8px; }
+.app-link { color: var(--accent); text-decoration: none; font-weight: 600; font-size: 13px; display: inline-flex; align-items: center; gap: 8px; font-family: 'JetBrains Mono', monospace; letter-spacing: 0.5px; text-transform: uppercase; padding-top: 18px; border-top: 1px solid var(--border); width: 100%; transition: all 0.3s; }
+.app-link:hover { gap: 14px; color: var(--accent-glow); }
+
+.services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
+.service-card { padding: 36px 30px; border-radius: 14px; background: var(--card); border: 1px solid var(--border); transition: all 0.4s; }
+.service-card:hover { border-color: rgba(0, 212, 184, 0.3); transform: translateY(-3px); background: var(--card-hover); }
+.service-number { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--text3); letter-spacing: 1.5px; margin-bottom: 18px; }
+.service-icon { width: 52px; height: 52px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 24px; margin-bottom: 22px; background: rgba(0, 212, 184, 0.08); border: 1px solid var(--border); }
+.service-card h3 { font-family: 'Fraunces', serif; font-size: 22px; font-weight: 600; margin-bottom: 12px; letter-spacing: -0.3px; }
+.service-card p { color: var(--text2); font-size: 14.5px; line-height: 1.7; }
+
+#tech { background: var(--bg2); }
+.tech-grid { display: flex; flex-wrap: wrap; gap: 10px; max-width: 900px; }
+.tech-pill { padding: 9px 18px; border-radius: 100px; font-size: 12px; font-weight: 500; background: var(--card); border: 1px solid var(--border); color: var(--text2); transition: all 0.3s; font-family: 'JetBrains Mono', monospace; letter-spacing: 0.3px; }
+.tech-pill:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-1px); }
+
+.contact-box { background: linear-gradient(135deg, rgba(0, 212, 184, 0.08), rgba(255, 216, 96, 0.04)); border: 1px solid rgba(0, 212, 184, 0.2); border-radius: 20px; padding: 72px 56px; text-align: center; max-width: 760px; margin: 0 auto; position: relative; overflow: hidden; }
+.contact-box::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(0, 212, 184, 0.08) 0%, transparent 40%); pointer-events: none; }
+.contact-label { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 2.5px; color: var(--accent); text-transform: uppercase; margin-bottom: 20px; position: relative; }
+.contact-box h3 { font-family: 'Fraunces', serif; font-size: 42px; margin-bottom: 18px; font-weight: 500; letter-spacing: -1px; position: relative; }
+.contact-box h3 em { font-style: italic; color: var(--accent); font-weight: 400; }
+.contact-box p { color: var(--text2); margin-bottom: 40px; line-height: 1.7; font-size: 16px; position: relative; max-width: 540px; margin-left: auto; margin-right: auto; }
+.contact-links { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; position: relative; }
+.contact-link { padding: 14px 28px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 13px; background: var(--card); color: var(--text); border: 1px solid var(--border); transition: all 0.3s; display: inline-flex; align-items: center; gap: 10px; font-family: 'JetBrains Mono', monospace; letter-spacing: 0.5px; }
+.contact-link:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-1px); }
+
+footer { padding: 50px 24px 40px; text-align: center; border-top: 1px solid var(--border); }
+.footer-logo { font-family: 'Fraunces', serif; font-size: 22px; font-weight: 700; color: var(--text); margin-bottom: 8px; }
+.footer-logo span { color: var(--accent2); font-style: italic; font-weight: 500; }
+.footer-tagline { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--text3); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 24px; }
+footer p { color: var(--text3); font-size: 13px; }
+
+@keyframes fadeDown { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+
+@media (max-width: 768px) {
+  .nav-inner { flex-wrap: wrap; }
+  .nav-right { gap: 14px; }
+  .nav-links { display: none; position: absolute; top: 64px; left: 0; right: 0; background: var(--bg); flex-direction: column; padding: 24px; gap: 20px; border-bottom: 1px solid var(--border); z-index: 99; }
+  .nav-links.active { display: flex; }
+  .nav-toggle { display: block; }
+  .hero { padding: 130px 20px 80px; }
+  .hero-buttons { flex-direction: column; align-items: stretch; }
+  .btn { justify-content: center; }
+  section { padding: 80px 20px; }
+  .section-header { margin-bottom: 48px; }
+  .contact-box { padding: 48px 28px; }
+  .contact-box h3 { font-size: 30px; }
+  .apps-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="logo">
+      <span class="logo-mark">
+        <svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <radialGradient id="lanternGlow" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#ffe080" stop-opacity="1"/>
+              <stop offset="60%" stop-color="#ffd860" stop-opacity="0.8"/>
+              <stop offset="100%" stop-color="#00d4b8" stop-opacity="0.2"/>
+            </radialGradient>
+          </defs>
+          <path d="M14 4 Q18 1.5 22 4" fill="none" stroke="#00d4b8" stroke-width="1.5" stroke-linecap="round"/>
+          <path d="M12 6 L24 6 L22 9 L14 9 Z" fill="none" stroke="#00d4b8" stroke-width="1.5" stroke-linejoin="round"/>
+          <rect x="11" y="10" width="14" height="18" rx="2" fill="none" stroke="#00d4b8" stroke-width="1.5"/>
+          <circle cx="18" cy="19" r="5" fill="url(#lanternGlow)"/>
+          <line x1="11" y1="19" x2="7" y2="19" stroke="#ffd860" stroke-width="1" opacity="0.7"/>
+          <line x1="25" y1="19" x2="29" y2="19" stroke="#ffd860" stroke-width="1" opacity="0.7"/>
+          <rect x="13" y="28" width="10" height="2" fill="#00d4b8"/>
+          <rect x="15" y="30" width="6" height="2" fill="#00d4b8"/>
+        </svg>
+      </span>
+      Sirac<span>Labs</span>
+    </a>
+    <div class="nav-right">
+      <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('active')">☰</button>
+      <ul class="nav-links">
+        <li><a href="#apps" lang-content="en">Apps</a><a href="#apps" lang-content="tr">Uygulamalar</a></li>
+        <li><a href="#services" lang-content="en">Services</a><a href="#services" lang-content="tr">Hizmetler</a></li>
+        <li><a href="#tech" lang-content="en">Technology</a><a href="#tech" lang-content="tr">Teknoloji</a></li>
+        <li><a href="#contact" lang-content="en">Contact</a><a href="#contact" lang-content="tr">İletişim</a></li>
+      </ul>
+      <div class="lang-switch">
+        <button class="lang-btn active" data-lang="en" onclick="setLang('en')">EN</button>
+        <button class="lang-btn" data-lang="tr" onclick="setLang('tr')">TR</button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-badge">
+      <span class="dot"></span>
+      <span lang-content="en">AI-Powered Digital Solutions</span>
+      <span lang-content="tr">Yapay Zeka Destekli Dijital Çözümler</span>
+    </div>
+    <h1 lang-content="en">Code that <em>illuminates.</em><br>Apps that <span class="accent-gold">inspire.</span></h1>
+    <h1 lang-content="tr">Aydınlatan <em>kod.</em><br>İlham veren <span class="accent-gold">uygulamalar.</span></h1>
+    <p class="hero-subtitle" lang-content="en">Mobile applications powered by artificial intelligence. Custom software development. Data science consulting. From concept to production — we bring your vision to light.</p>
+    <p class="hero-subtitle" lang-content="tr">Yapay zeka destekli mobil uygulamalar. Özel yazılım geliştirme. Veri bilimi danışmanlığı. Fikirden ürüne — vizyonunuzu ışığa kavuşturuyoruz.</p>
+    <div class="hero-buttons">
+      <a href="#apps" class="btn btn-primary" lang-content="en">Explore Our Work →</a>
+      <a href="#apps" class="btn btn-primary" lang-content="tr">Çalışmalarımıza Bakın →</a>
+      <a href="#contact" class="btn btn-outline" lang-content="en">Start a Project</a>
+      <a href="#contact" class="btn btn-outline" lang-content="tr">Projenizi Başlatın</a>
+    </div>
+  </div>
+</section>
+
+<section id="apps">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label" lang-content="en">Our Products</div>
+      <div class="section-label" lang-content="tr">Ürünlerimiz</div>
+      <h2 class="section-title" lang-content="en">AI Apps, <em>live on Google Play</em></h2>
+      <h2 class="section-title" lang-content="tr">Google Play'de <em>yayında</em></h2>
+      <p class="section-desc" lang-content="en">Health and nutrition applications powered by artificial intelligence. Built with care, designed to make everyday life easier. Free to download.</p>
+      <p class="section-desc" lang-content="tr">Yapay zeka destekli sağlık ve beslenme uygulamaları. Özenle geliştirildi, günlük hayatı kolaylaştırmak için tasarlandı. Ücretsiz indirilebilir.</p>
+    </div>
+    <div class="apps-grid">
+
+      <div class="app-card">
+        <div class="app-header">
+          <div class="app-icon">📸</div>
+          <span class="app-tag tag-live" lang-content="en">Live · Global</span>
+          <span class="app-tag tag-live" lang-content="tr">Yayında · Global</span>
+        </div>
+        <h3>NutriSnap AI</h3>
+        <p lang-content="en">Snap a photo of your food — AI instantly calculates calories, protein, carbs, and fat. Personal calorie targets, smart water tracking, and daily AI nutrition guidance. Available worldwide in English.</p>
+        <p lang-content="tr">Yemeğinizin fotoğrafını çekin — AI anında kalori, protein, karbonhidrat ve yağ hesaplar. Kişisel kalori hedefleri, akıllı su takibi ve günlük AI beslenme danışmanlığı. Dünya genelinde İngilizce kullanılabilir.</p>
+        <div class="app-video"><iframe src="https://www.youtube.com/embed/1DDNcvnGE78" frameborder="0" allowfullscreen></iframe></div>
+        <a href="https://play.google.com/store/apps/details?id=com.codelantern.nutrisnap" class="app-link" target="_blank" lang-content="en">Download Free →</a>
+        <a href="https://play.google.com/store/apps/details?id=com.codelantern.nutrisnap" class="app-link" target="_blank" lang-content="tr">Ücretsiz İndir →</a>
+      </div>
+
+      <div class="app-card">
+        <div class="app-header">
+          <div class="app-icon">🍽️</div>
+          <span class="app-tag tag-live">Live · Türkiye</span>
+        </div>
+        <h3>FoodLens AI</h3>
+        <p lang-content="en">A calorie tracker designed specifically for Turkish cuisine. Database of 1400+ Turkish dishes, photo recognition, personal targets, smart water tracking, and AI nutrition advisor.</p>
+        <p lang-content="tr">Türk mutfağına özel AI kalori takip uygulaması. 1400+ Türk yemeği veritabanı, fotoğrafla tanıma, kişisel hedefler, akıllı su takibi ve AI beslenme danışmanı. Türkçe tasarlandı.</p>
+        <div class="app-video"><iframe src="https://www.youtube.com/embed/ydEwsih6wr4" frameborder="0" allowfullscreen></iframe></div>
+        <a href="https://play.google.com/store/apps/details?id=com.codelantern.foodlens" class="app-link" target="_blank" lang-content="en">Download Free →</a>
+        <a href="https://play.google.com/store/apps/details?id=com.codelantern.foodlens" class="app-link" target="_blank" lang-content="tr">Ücretsiz İndir →</a>
+      </div>
+
+      <div class="app-card">
+        <div class="app-header">
+          <div class="app-icon">🔬</div>
+          <span class="app-tag tag-dev" lang-content="en">Coming Soon</span>
+          <span class="app-tag tag-dev" lang-content="tr">Yakında</span>
+        </div>
+        <h3>SkinCheck AI</h3>
+        <p lang-content="en">AI-powered skin analysis app. Take a photo of your skin concern and receive instant AI analysis with personalized recommendations. Professional-grade dermatology insights in your pocket.</p>
+        <p lang-content="tr">Yapay zeka destekli cilt analizi uygulaması. Cilt sorununuzun fotoğrafını çekin, anında AI analizi ve kişiselleştirilmiş öneriler alın. Cebinizde profesyonel dermatoloji içgörüleri.</p>
+        <a href="#contact" class="app-link" lang-content="en">Get Notified →</a>
+        <a href="#contact" class="app-link" lang-content="tr">Haberdar Ol →</a>
+      </div>
+
+      <div class="app-card">
+        <div class="app-header">
+          <div class="app-icon">🎓</div>
+          <span class="app-tag tag-dev" lang-content="en">Free Coupon</span>
+          <span class="app-tag tag-dev" lang-content="tr">Ücretsiz Kupon</span>
+        </div>
+        <h3 lang-content="en">Scratch Programming Course</h3>
+        <h3 lang-content="tr">Scratch ile Programlama Kursu</h3>
+        <p lang-content="en">Learn programming fundamentals with Scratch — perfect for kids, students, and beginners. Visual block-based coding that makes learning fun and intuitive. Normally paid, free with coupon.</p>
+        <p lang-content="tr">Scratch ile programlama temellerini öğrenin — çocuklar, öğrenciler ve yeni başlayanlar için ideal. Görsel blok tabanlı kodlama eğlenceli ve sezgisel. Normalde ücretli, kupon ile ücretsiz.</p>
+        <p class="app-coupon">🔑 COUPON: E18F566206DD38F89A96</p>
+        <div class="app-video"><iframe src="https://www.youtube.com/embed/HF9GITAo67M" frameborder="0" allowfullscreen></iframe></div>
+        <a href="https://www.udemy.com/course/programming-fundamentals-training-with-scratch/?couponCode=E18F566206DD38F89A96" class="app-link" target="_blank" lang-content="en">Enroll Free →</a>
+        <a href="https://www.udemy.com/course/programming-fundamentals-training-with-scratch/?couponCode=E18F566206DD38F89A96" class="app-link" target="_blank" lang-content="tr">Ücretsiz Kaydol →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label" lang-content="en">What We Build</div>
+      <div class="section-label" lang-content="tr">Ne Yapıyoruz</div>
+      <h2 class="section-title" lang-content="en">Services, <em>crafted with care.</em></h2>
+      <h2 class="section-title" lang-content="tr">Özenle <em>geliştirilmiş</em> hizmetler.</h2>
+      <p class="section-desc" lang-content="en">End-to-end development services — from concept to deployment. Tailored to your business needs, budget, and timeline.</p>
+      <p class="section-desc" lang-content="tr">Uçtan uca geliştirme hizmetleri — fikirden yayına. İşletmenizin ihtiyacına, bütçenize ve zamanınıza uygun.</p>
+    </div>
+    <div class="services-grid">
+
+      <div class="service-card">
+        <div class="service-number">01</div>
+        <div class="service-icon">📱</div>
+        <h3 lang-content="en">Custom Mobile Apps</h3>
+        <h3 lang-content="tr">Özel Mobil Uygulamalar</h3>
+        <p lang-content="en">Cross-platform Android & iOS apps built with Flutter. AI integration, payment systems, elegant UI/UX. From health apps to e-commerce — built to your specifications.</p>
+        <p lang-content="tr">Flutter ile geliştirilmiş Android & iOS uygulamaları. AI entegrasyonu, ödeme sistemleri, zarif tasarım. Sağlık uygulamalarından e-ticarete — ihtiyacınıza göre yapıyoruz.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-number">02</div>
+        <div class="service-icon">🌐</div>
+        <h3 lang-content="en">Website Development</h3>
+        <h3 lang-content="tr">Web Sitesi Geliştirme</h3>
+        <p lang-content="en">Modern, responsive websites and web applications. Landing pages, corporate sites, dashboards, admin panels. SEO-optimized and mobile-first design.</p>
+        <p lang-content="tr">Modern, responsive web siteleri ve uygulamalar. Landing page, kurumsal site, yönetim paneli. SEO uyumlu ve mobil öncelikli tasarım.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-number">03</div>
+        <div class="service-icon">🤖</div>
+        <h3 lang-content="en">AI Chatbot & LLM Solutions</h3>
+        <h3 lang-content="tr">AI Chatbot & LLM Çözümleri</h3>
+        <p lang-content="en">Custom chatbots powered by GPT-4, Gemini, Claude, and open-source LLMs. RAG systems, knowledge base integration, multilingual support.</p>
+        <p lang-content="tr">GPT-4, Gemini, Claude ve açık kaynak LLM'ler ile özel chatbot'lar. RAG sistemleri, bilgi tabanı entegrasyonu, çok dilli destek.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-number">04</div>
+        <div class="service-icon">📊</div>
+        <h3 lang-content="en">Data Science & ML</h3>
+        <h3 lang-content="tr">Veri Bilimi & ML</h3>
+        <p lang-content="en">Revenue forecasting, customer segmentation, demand prediction. PySpark pipelines, LightGBM models, production-grade ML systems. 6+ years enterprise experience.</p>
+        <p lang-content="tr">Ciro tahmini, müşteri segmentasyonu, talep tahmini. PySpark pipeline'lar, LightGBM modelleri, kurumsal ML sistemleri. 6+ yıl kurumsal tecrübe.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-number">05</div>
+        <div class="service-icon">👁️</div>
+        <h3 lang-content="en">Computer Vision</h3>
+        <h3 lang-content="tr">Görüntü İşleme</h3>
+        <p lang-content="en">Object detection (YOLOv8), image classification, OCR, visual AI. From waste classification to food recognition — custom vision models for your use case.</p>
+        <p lang-content="tr">Nesne tespiti (YOLOv8), görüntü sınıflandırma, OCR, görsel AI. Atık sınıflandırmadan yemek tanımaya — ihtiyacınıza özel vizyon modelleri.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-number">06</div>
+        <div class="service-icon">🏷️</div>
+        <h3 lang-content="en">White-Label Apps</h3>
+        <h3 lang-content="tr">White-Label Uygulamalar</h3>
+        <p lang-content="en">License our existing AI app templates for your brand. Nutrition tracking, skin analysis, and more — customized with your branding, deployed to your Play Store account.</p>
+        <p lang-content="tr">Mevcut AI uygulama şablonlarımızı markanıza lisanslayın. Beslenme takibi, cilt analizi ve daha fazlası — markanızla özelleştirilip Play Store hesabınızda yayınlanır.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="tech">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label" lang-content="en">Technology Stack</div>
+      <div class="section-label" lang-content="tr">Teknoloji Yığını</div>
+      <h2 class="section-title" lang-content="en">Built on <em>modern</em> foundations.</h2>
+      <h2 class="section-title" lang-content="tr"><em>Modern</em> temeller üzerine kurulu.</h2>
+      <p class="section-desc" lang-content="en">We work with production-proven technologies that scale reliably and perform beautifully.</p>
+      <p class="section-desc" lang-content="tr">Güvenilir ölçeklenen ve mükemmel performans gösteren, üretimde kanıtlanmış teknolojilerle çalışıyoruz.</p>
+    </div>
+    <div class="tech-grid">
+      <span class="tech-pill">Flutter</span>
+      <span class="tech-pill">Dart</span>
+      <span class="tech-pill">Python</span>
+      <span class="tech-pill">PySpark</span>
+      <span class="tech-pill">TensorFlow</span>
+      <span class="tech-pill">YOLOv8</span>
+      <span class="tech-pill">LightGBM</span>
+      <span class="tech-pill">OpenAI GPT-4</span>
+      <span class="tech-pill">Google Gemini</span>
+      <span class="tech-pill">Claude API</span>
+      <span class="tech-pill">LLaVA / VLMs</span>
+      <span class="tech-pill">RAG Systems</span>
+      <span class="tech-pill">Firebase</span>
+      <span class="tech-pill">Google Cloud</span>
+      <span class="tech-pill">REST APIs</span>
+      <span class="tech-pill">HTML / CSS / JS</span>
+      <span class="tech-pill">React</span>
+      <span class="tech-pill">SQL / NoSQL</span>
+      <span class="tech-pill">Git / CI/CD</span>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container">
+    <div class="contact-box">
+      <div class="contact-label" lang-content="en">Let's Talk</div>
+      <div class="contact-label" lang-content="tr">Konuşalım</div>
+      <h3 lang-content="en">Have a project <em>in mind?</em></h3>
+      <h3 lang-content="tr">Bir projeniz <em>mi var?</em></h3>
+      <p lang-content="en">Need a custom app, website, or AI solution? Get in touch — we'd love to hear about your idea and provide a free, no-obligation quote.</p>
+      <p lang-content="tr">Özel bir uygulama, web sitesi veya AI çözümü mü lazım? Bize ulaşın — fikrinizi duymaktan mutluluk duyarız ve ücretsiz, zorunluluksuz teklif sunarız.</p>
+      <div class="contact-links">
+        <a href="mailto:hello@siraclabs.com" class="contact-link">✉ hello@siraclabs.com</a>
+        <a href="https://www.linkedin.com/in/adem-keklik-73b01121a" class="contact-link" target="_blank">in LinkedIn</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">Sirac<span>Labs</span></div>
+  <div class="footer-tagline" lang-content="en">Code that illuminates</div>
+  <div class="footer-tagline" lang-content="tr">Aydınlatan kod</div>
+  <p lang-content="en">© 2026 Sirac Labs — AI-Powered Digital Solutions. All rights reserved.</p>
+  <p lang-content="tr">© 2026 Sirac Labs — Yapay Zeka Destekli Dijital Çözümler. Tüm hakları saklıdır.</p>
+</footer>
+
+<script>
+function setLang(lang) {
+  document.documentElement.setAttribute('data-lang', lang);
+  document.documentElement.setAttribute('lang', lang);
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.lang === lang);
+  });
+  try { localStorage.setItem('sirac-lang', lang); } catch(e) {}
+}
+
+(function() {
+  let savedLang = null;
+  try { savedLang = localStorage.getItem('sirac-lang'); } catch(e) {}
+  
+  if (savedLang) {
+    setLang(savedLang);
+  } else {
+    const browserLang = (navigator.language || 'en').toLowerCase();
+    if (browserLang.startsWith('tr')) {
+      setLang('tr');
+    }
+  }
+})();
+</script>
+
+</body>
+</html>
