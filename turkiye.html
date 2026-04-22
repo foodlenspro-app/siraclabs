@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- SEO Meta Tags -->
+<title>Türkiye Geneli Web Tasarım & Mobil Uygulama Hizmetleri | SiracLabs</title>
+<meta name="description" content="Türkiye'nin 81 ilinde uzaktan web sitesi tasarımı, mobil uygulama ve yapay zeka çözümleri. Lokasyon engeli olmadan, her yerden müşteriye hizmet veren bağımsız yazılım stüdyosu.">
+<meta name="keywords" content="Türkiye web tasarım, Türkiye mobil uygulama, 81 il web tasarım, uzaktan yazılım hizmeti, Türkiye freelance yazılımcı, Türkiye yapay zeka, tüm illerde hizmet">
+<meta name="author" content="SiracLabs">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://siraclabs.com/turkiye.html">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://siraclabs.com/turkiye.html">
+<meta property="og:title" content="Türkiye Geneli Web Tasarım & Mobil Uygulama | SiracLabs">
+<meta property="og:description" content="Türkiye'nin 81 ilinde uzaktan profesyonel yazılım hizmetleri. Bağımsız stüdyo, şeffaf fiyat.">
+<meta property="og:locale" content="tr_TR">
+
+<!-- Schema.org -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "SiracLabs — Türkiye Geneli Yazılım Hizmetleri",
+  "description": "Türkiye'nin 81 ilinde uzaktan web tasarım, mobil uygulama ve yapay zeka geliştirme hizmetleri",
+  "url": "https://siraclabs.com/turkiye.html",
+  "areaServed": {
+    "@type": "Country",
+    "name": "Turkey"
+  },
+  "serviceType": ["Web Tasarım", "Mobil Uygulama Geliştirme", "Yapay Zeka Çözümleri"],
+  "priceRange": "$$"
+}
+</script>
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg: #0a0d16;
+  --bg-elevated: #0f131e;
+  --bg-soft: #151a28;
+  --ink: #f5f1e8;
+  --ink-soft: #c9c4b5;
+  --ink-dim: #8a8576;
+  --gold: #e8c878;
+  --gold-bright: #ffd98a;
+  --gold-deep: #c89f47;
+  --teal: #4fc3b8;
+  --teal-bright: #6fd9cf;
+  --whatsapp: #25d366;
+  --line: rgba(245, 241, 232, 0.08);
+  --line-strong: rgba(245, 241, 232, 0.15);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'Geist', sans-serif;
+  line-height: 1.7;
+  overflow-x: hidden;
+  position: relative;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='0.9'/%3E%3CfeColorMatrix values='0 0 0 0 0.9 0 0 0 0 0.85 0 0 0 0 0.7 0 0 0 0.08 0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: 0.4;
+  pointer-events: none;
+  z-index: 1;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: 
+    radial-gradient(circle at 20% 10%, rgba(232, 200, 120, 0.08), transparent 40%),
+    radial-gradient(circle at 80% 60%, rgba(79, 195, 184, 0.06), transparent 40%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 32px;
+  position: relative;
+  z-index: 2;
+}
+
+nav {
+  position: fixed; top: 0; width: 100%; z-index: 50;
+  backdrop-filter: blur(24px);
+  background: rgba(10, 13, 22, 0.7);
+  border-bottom: 1px solid var(--line);
+}
+.nav-inner {
+  max-width: 1200px; margin: 0 auto; padding: 20px 32px;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.logo {
+  font-family: 'Fraunces', serif;
+  font-size: 22px; font-weight: 500;
+  color: var(--ink); text-decoration: none;
+  letter-spacing: -0.3px;
+  display: inline-flex; align-items: center; gap: 10px;
+}
+.logo-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--gold);
+  box-shadow: 0 0 16px var(--gold);
+  animation: pulse 3s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.2); }
+}
+.logo-name { display: inline-flex; align-items: baseline; letter-spacing: -0.5px; }
+.logo em {
+  font-style: italic; color: var(--gold);
+  margin-left: 2px;
+}
+.nav-links {
+  display: flex; gap: 36px; list-style: none;
+}
+.nav-links a {
+  color: var(--ink-soft); text-decoration: none;
+  font-size: 13px; font-weight: 500;
+  font-family: 'Geist Mono', monospace;
+  text-transform: uppercase; letter-spacing: 1px;
+  transition: color 0.3s;
+}
+.nav-links a:hover { color: var(--gold); }
+
+.hero-local {
+  padding: 180px 32px 80px;
+  position: relative;
+  z-index: 2;
+}
+.hero-local .container { text-align: center; }
+.breadcrumb {
+  font-family: 'Geist Mono', monospace;
+  font-size: 12px;
+  color: var(--ink-dim);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 24px;
+}
+.breadcrumb a { color: var(--teal); text-decoration: none; }
+
+h1.hero-title {
+  font-family: 'Fraunces', serif;
+  font-weight: 400;
+  font-size: clamp(38px, 6vw, 72px);
+  line-height: 1.08;
+  letter-spacing: -1.2px;
+  margin-bottom: 24px;
+}
+h1.hero-title em {
+  font-family: 'Instrument Serif', serif;
+  font-style: italic;
+  color: var(--gold);
+  font-weight: 400;
+}
+.hero-subtitle {
+  font-size: 18px;
+  color: var(--ink-soft);
+  max-width: 780px;
+  margin: 0 auto 40px;
+  line-height: 1.6;
+}
+
+.stats-row {
+  display: flex;
+  justify-content: center;
+  gap: 48px;
+  margin: 40px auto;
+  flex-wrap: wrap;
+}
+.stat {
+  text-align: center;
+}
+.stat-num {
+  font-family: 'Fraunces', serif;
+  font-size: 48px;
+  color: var(--gold);
+  font-weight: 500;
+  line-height: 1;
+}
+.stat-label {
+  font-family: 'Geist Mono', monospace;
+  font-size: 11px;
+  color: var(--ink-dim);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-top: 6px;
+}
+
+.cta-group {
+  display: inline-flex; gap: 16px; flex-wrap: wrap; justify-content: center;
+}
+.btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 14px 26px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-size: 14px; font-weight: 500;
+  font-family: 'Geist Mono', monospace;
+  transition: all 0.3s;
+}
+.btn-whatsapp {
+  background: var(--whatsapp);
+  color: #fff;
+}
+.btn-whatsapp:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(37, 211, 102, 0.3); }
+.btn-whatsapp svg { width: 18px; height: 18px; fill: currentColor; }
+.btn-secondary {
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid var(--line-strong);
+}
+.btn-secondary:hover { border-color: var(--gold); color: var(--gold); }
+
+section.content-section {
+  padding: 80px 32px;
+  position: relative;
+  z-index: 2;
+}
+.section-title {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 400;
+  letter-spacing: -0.5px;
+  margin-bottom: 20px;
+  line-height: 1.2;
+  text-align: center;
+}
+.section-title em {
+  font-family: 'Instrument Serif', serif;
+  font-style: italic;
+  color: var(--gold);
+}
+.section-lead {
+  font-size: 17px;
+  color: var(--ink-soft);
+  max-width: 780px;
+  margin: 0 auto 50px;
+  line-height: 1.7;
+  text-align: center;
+}
+
+/* How it works */
+.how-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 32px;
+  margin-top: 40px;
+}
+.how-item {
+  background: var(--bg-elevated);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 32px 28px;
+  text-align: center;
+  transition: all 0.4s;
+}
+.how-item:hover {
+  border-color: var(--gold);
+  transform: translateY(-4px);
+}
+.how-num {
+  font-family: 'Fraunces', serif;
+  font-size: 40px;
+  color: var(--gold);
+  margin-bottom: 12px;
+}
+.how-item h3 {
+  font-family: 'Fraunces', serif;
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+.how-item p {
+  color: var(--ink-soft);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+/* All 81 Cities */
+.all-cities {
+  background: var(--bg-elevated);
+  border-radius: 24px;
+  padding: 48px;
+  margin: 60px 0;
+  border: 1px solid var(--line);
+}
+.all-cities h3 {
+  font-family: 'Fraunces', serif;
+  font-size: 28px;
+  font-weight: 400;
+  margin-bottom: 16px;
+  text-align: center;
+}
+.all-cities-lead {
+  color: var(--ink-soft);
+  font-size: 15px;
+  text-align: center;
+  margin-bottom: 32px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.city-grid-all {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 8px;
+}
+.city-item {
+  padding: 10px 14px;
+  background: var(--bg-soft);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  color: var(--ink-soft);
+  text-decoration: none;
+  font-size: 13px;
+  font-family: 'Geist Mono', monospace;
+  transition: all 0.3s;
+  text-align: center;
+}
+.city-item:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+  transform: translateY(-1px);
+}
+.city-item.featured {
+  background: rgba(232, 200, 120, 0.1);
+  border-color: var(--gold-deep);
+  color: var(--gold);
+}
+.city-item.featured:hover {
+  background: rgba(232, 200, 120, 0.2);
+}
+
+.featured-legend {
+  text-align: center;
+  margin-top: 24px;
+  font-size: 13px;
+  color: var(--ink-dim);
+}
+.legend-dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background: var(--gold);
+  border-radius: 2px;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+/* FAQ */
+.faq {
+  max-width: 860px;
+  margin: 40px auto 0;
+}
+.faq-item {
+  border-bottom: 1px solid var(--line);
+  padding: 24px 0;
+}
+.faq-item h3 {
+  font-family: 'Fraunces', serif;
+  font-size: 19px;
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+.faq-item p {
+  color: var(--ink-soft);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.final-cta {
+  background: linear-gradient(135deg, rgba(232, 200, 120, 0.05), rgba(79, 195, 184, 0.05));
+  border: 1px solid var(--line-strong);
+  border-radius: 28px;
+  padding: 60px 40px;
+  text-align: center;
+  margin-top: 60px;
+}
+.final-cta h2 {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(26px, 4vw, 40px);
+  font-weight: 400;
+  margin-bottom: 16px;
+}
+.final-cta h2 em {
+  font-family: 'Instrument Serif', serif;
+  font-style: italic;
+  color: var(--gold);
+}
+.final-cta p {
+  color: var(--ink-soft);
+  font-size: 16px;
+  margin-bottom: 32px;
+  max-width: 620px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+footer {
+  padding: 60px 32px 40px;
+  border-top: 1px solid var(--line);
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  margin-top: 80px;
+}
+footer .logo { justify-content: center; margin-bottom: 20px; }
+footer p { color: var(--ink-dim); font-size: 13px; margin: 4px 0; }
+footer a { color: var(--teal); text-decoration: none; }
+
+.whatsapp-float {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 60px;
+  height: 60px;
+  background: var(--whatsapp);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4);
+  z-index: 100;
+  transition: transform 0.3s;
+}
+.whatsapp-float:hover { transform: scale(1.1); }
+.whatsapp-float svg { width: 30px; height: 30px; fill: #fff; }
+
+@media (max-width: 640px) {
+  .nav-links { display: none; }
+  .hero-local { padding: 140px 24px 60px; }
+  section.content-section { padding: 60px 24px; }
+  .container { padding: 0 24px; }
+  .all-cities { padding: 32px 20px; }
+  .final-cta { padding: 40px 24px; }
+  .city-grid-all { grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); }
+  .stats-row { gap: 24px; }
+  .stat-num { font-size: 36px; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="logo">
+      <span class="logo-dot"></span>
+      <span class="logo-name">Sirac<em>Labs</em></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="/">Ana Sayfa</a></li>
+      <li><a href="/#services">Hizmetler</a></li>
+      <li><a href="/#apps">Uygulamalar</a></li>
+      <li><a href="/#contact">İletişim</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="hero-local">
+  <div class="container">
+    <div class="breadcrumb"><a href="/">Ana Sayfa</a> / Türkiye Geneli Hizmet</div>
+    <h1 class="hero-title">
+      Türkiye'nin <em>81 ilinde.</em><br>
+      Lokasyon engeli yok.
+    </h1>
+    <p class="hero-subtitle">
+      Web sitesi tasarımı, mobil uygulama geliştirme ve yapay zeka çözümleri — Türkiye'nin neresinde olursanız olun. Uzaktan çalışma modeliyle küçük ilçeden büyük şehre, her girişimcinin ve işletmenin yanındayız.
+    </p>
+    
+    <div class="stats-row">
+      <div class="stat">
+        <div class="stat-num">81</div>
+        <div class="stat-label">İl Kapsamı</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Uzaktan</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">6+</div>
+        <div class="stat-label">Yıl Deneyim</div>
+      </div>
+    </div>
+
+    <div class="cta-group">
+      <a href="https://wa.me/905524771717?text=Merhaba%20SiracLabs%2C%20T%C3%BCrkiye%27den%20yaz%C4%B1yorum.%20Projem%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." class="btn btn-whatsapp" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.297-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        WhatsApp'tan Yaz
+      </a>
+      <a href="mailto:hello@siraclabs.com" class="btn btn-secondary">hello@siraclabs.com</a>
+    </div>
+  </div>
+</section>
+
+<section class="content-section">
+  <div class="container">
+    <h2 class="section-title">Uzaktan <em>nasıl çalışıyoruz?</em></h2>
+    <p class="section-lead">
+      Lokasyon fark etmez — süreç her yerde aynı verimlilikte işler. İstanbul'daki startup ile Muş'taki KOBİ aynı kaliteyi alır.
+    </p>
+    <div class="how-grid">
+      <div class="how-item">
+        <div class="how-num">01</div>
+        <h3>İlk Temas</h3>
+        <p>WhatsApp veya email'den ulaşın. Proje fikrinizi kısaca anlatın. 24 saat içinde cevap veriyoruz.</p>
+      </div>
+      <div class="how-item">
+        <div class="how-num">02</div>
+        <h3>Ücretsiz Keşif</h3>
+        <p>Zoom veya telefon görüşmesi. İhtiyacınızı birlikte analiz ediyor, kapsam ve bütçe netleştiriyoruz.</p>
+      </div>
+      <div class="how-item">
+        <div class="how-num">03</div>
+        <h3>Teklif & Anlaşma</h3>
+        <p>Detaylı teklif + zaman çizelgesi sunuyoruz. Uzaktan sözleşme imzası. Proje başlıyor.</p>
+      </div>
+      <div class="how-item">
+        <div class="how-num">04</div>
+        <h3>Düzenli İletişim</h3>
+        <p>Haftalık görüşme, WhatsApp güncellemeleri. İlerlemeyi her zaman görüyorsunuz.</p>
+      </div>
+      <div class="how-item">
+        <div class="how-num">05</div>
+        <h3>Teslim</h3>
+        <p>Test ve revizyonlar sonrası teslim. Hosting ve domain yönlendirmeleri dahil.</p>
+      </div>
+      <div class="how-item">
+        <div class="how-num">06</div>
+        <h3>Sonraki Adım</h3>
+        <p>Bakım, güncelleme, yeni özellik için yanınızdayız. Uzun soluklu iş ortaklığı.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="content-section">
+  <div class="container">
+    <div class="all-cities">
+      <h3>Hizmet Verdiğimiz Şehirler</h3>
+      <p class="all-cities-lead">
+        Türkiye'nin 81 ilinde uzaktan hizmet veriyoruz. Aşağıda <strong style="color: var(--gold);">altın renkli</strong> şehirler için özel bilgi sayfalarımız var — diğer iller için de aynı hizmeti sunuyoruz.
+      </p>
+      <div class="city-grid-all">
+        <div class="city-item">Adana</div>
+        <a href="/adana.html" class="city-item featured">Adana ↗</a>
+        <a href="/adiyaman.html" class="city-item featured">Adıyaman ↗</a>
+        <div class="city-item">Afyonkarahisar</div>
+        <div class="city-item">Ağrı</div>
+        <div class="city-item">Amasya</div>
+        <a href="/ankara.html" class="city-item featured">Ankara ↗</a>
+        <a href="/antalya.html" class="city-item featured">Antalya ↗</a>
+        <div class="city-item">Artvin</div>
+        <div class="city-item">Aydın</div>
+        <div class="city-item">Balıkesir</div>
+        <div class="city-item">Bilecik</div>
+        <div class="city-item">Bingöl</div>
+        <div class="city-item">Bitlis</div>
+        <div class="city-item">Bolu</div>
+        <div class="city-item">Burdur</div>
+        <a href="/bursa.html" class="city-item featured">Bursa ↗</a>
+        <div class="city-item">Çanakkale</div>
+        <div class="city-item">Çankırı</div>
+        <div class="city-item">Çorum</div>
+        <div class="city-item">Denizli</div>
+        <div class="city-item">Diyarbakır</div>
+        <div class="city-item">Edirne</div>
+        <div class="city-item">Elazığ</div>
+        <div class="city-item">Erzincan</div>
+        <div class="city-item">Erzurum</div>
+        <div class="city-item">Eskişehir</div>
+        <a href="/gaziantep.html" class="city-item featured">Gaziantep ↗</a>
+        <div class="city-item">Giresun</div>
+        <div class="city-item">Gümüşhane</div>
+        <div class="city-item">Hakkari</div>
+        <div class="city-item">Hatay</div>
+        <div class="city-item">Isparta</div>
+        <div class="city-item">Mersin</div>
+        <a href="/istanbul.html" class="city-item featured">İstanbul ↗</a>
+        <a href="/izmir.html" class="city-item featured">İzmir ↗</a>
+        <div class="city-item">Kars</div>
+        <div class="city-item">Kastamonu</div>
+        <a href="/kayseri.html" class="city-item featured">Kayseri ↗</a>
+        <div class="city-item">Kırklareli</div>
+        <div class="city-item">Kırşehir</div>
+        <div class="city-item">Kocaeli</div>
+        <a href="/konya.html" class="city-item featured">Konya ↗</a>
+        <div class="city-item">Kütahya</div>
+        <div class="city-item">Malatya</div>
+        <div class="city-item">Manisa</div>
+        <a href="/kahramanmaras.html" class="city-item featured">K. Maraş ↗</a>
+        <div class="city-item">Mardin</div>
+        <div class="city-item">Muğla</div>
+        <div class="city-item">Muş</div>
+        <div class="city-item">Nevşehir</div>
+        <div class="city-item">Niğde</div>
+        <div class="city-item">Ordu</div>
+        <div class="city-item">Rize</div>
+        <div class="city-item">Sakarya</div>
+        <div class="city-item">Samsun</div>
+        <div class="city-item">Siirt</div>
+        <div class="city-item">Sinop</div>
+        <div class="city-item">Sivas</div>
+        <div class="city-item">Tekirdağ</div>
+        <div class="city-item">Tokat</div>
+        <div class="city-item">Trabzon</div>
+        <div class="city-item">Tunceli</div>
+        <a href="/sanliurfa.html" class="city-item featured">Ş. Urfa ↗</a>
+        <div class="city-item">Uşak</div>
+        <div class="city-item">Van</div>
+        <div class="city-item">Yozgat</div>
+        <div class="city-item">Zonguldak</div>
+        <div class="city-item">Aksaray</div>
+        <div class="city-item">Bayburt</div>
+        <div class="city-item">Karaman</div>
+        <div class="city-item">Kırıkkale</div>
+        <div class="city-item">Batman</div>
+        <div class="city-item">Şırnak</div>
+        <div class="city-item">Bartın</div>
+        <div class="city-item">Ardahan</div>
+        <div class="city-item">Iğdır</div>
+        <div class="city-item">Yalova</div>
+        <div class="city-item">Karabük</div>
+        <div class="city-item">Kilis</div>
+        <div class="city-item">Osmaniye</div>
+        <div class="city-item">Düzce</div>
+      </div>
+      <div class="featured-legend">
+        <span class="legend-dot"></span> Altın renkli şehirler özel bilgi sayfasına sahiptir
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="content-section">
+  <div class="container">
+    <h2 class="section-title">Sıkça Sorulan <em>Sorular</em></h2>
+    <div class="faq">
+      <div class="faq-item">
+        <h3>Benim şehrimin özel sayfası yok, hizmet alabilir miyim?</h3>
+        <p>Elbette. 12 şehir için özel bilgi sayfası hazırladık ama hizmet verdiğimiz yer sadece bu 12 şehirle sınırlı değil. Türkiye'nin tüm 81 ilinde uzaktan çalışma modeliyle hizmet veriyoruz. Muş'taki bir esnaftan Hakkari'deki bir girişimciye, Tokat'taki bir üreticiden Kilis'teki bir e-ticaret firmasına kadar — her yerden müşteri alıyoruz.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Uzaktan çalışma ne kadar verimli?</h3>
+        <p>Çok verimli. 2020 sonrası dünya uzaktan çalışmayı standardize etti. WhatsApp, Zoom, Teams, Google Meet — hepsi günlük araçlarımız. Fiziksel görüşmeye göre daha hızlı iletişim, daha esnek çalışma saatleri, daha düşük maliyet. Ayrıca, iş teslim zamanları bozulmadan, takvim daha sağlıklı yönetiliyor.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Küçük ilçelerdeki işletmelere de hizmet veriyor musunuz?</h3>
+        <p>Evet. Bursa İnegöl'den Antalya Manavgat'a, Konya Akşehir'den Adıyaman Kahta'ya — ilçe olsun, mahalle olsun fark etmiyor. İnternet bağlantısı olan her yerden proje alıyoruz. Küçük işletmelere özel uygun bütçe seçeneklerimiz var.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Uzaktan çalışırken kalite düşer mi?</h3>
+        <p>Hiçbir şekilde. Kalitenin kaynağı fiziksel yakınlık değil, profesyonel süreç. Biz projeyi WhatsApp'ta günlük güncelliyor, haftalık Zoom görüşmesinde ilerlemeyi gösteriyor, demo build'lerini sunuyoruz. Müşteri siteye/uygulamaya ilk günden erişim sahibi — adım adım takip ediyor. Bu aslında fiziksel buluşmalardan daha şeffaf.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Ödeme nasıl yapılır?</h3>
+        <p>Banka havalesi, şirket IBAN'ı, e-fatura — standart ödeme yöntemleri. Proje büyüklüğüne göre 2-4 aşamada ödeme alıyoruz (başlangıç, ara, teslim). Fatura şirket olmayan müşteriler için stopaj hesaplı serbest meslek makbuzu da mümkün.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Sözleşmeyi nasıl imzalıyoruz?</h3>
+        <p>Dijital sözleşme. KEP veya e-imza ile yasal geçerliliği olan dijital imzalama. Matbu sözleşme isterseniz posta/kargo ile de gönderebiliyoruz. İlk sözleşmede her iki tarafı da koruyan standart maddeler var.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="content-section">
+  <div class="container">
+    <div class="final-cta">
+      <h2>Şehriniz neresi olursa olsun, <em>dinliyoruz.</em></h2>
+      <p>Projenizi anlatın, uzaktan bile olsa en iyi çözümü üretelim. İlk görüşme ücretsiz, taahhütsüz — sadece fikir paylaşmak için.</p>
+      <div class="cta-group">
+        <a href="https://wa.me/905524771717?text=Merhaba%20SiracLabs%2C%20T%C3%BCrkiye%27den%20yaz%C4%B1yorum.%20Projem%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." class="btn btn-whatsapp" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.297-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+          WhatsApp'tan Yaz
+        </a>
+        <a href="mailto:hello@siraclabs.com?subject=T%C3%BCrkiye%27den%20proje%20talebi" class="btn btn-secondary">hello@siraclabs.com</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <a href="/" class="logo">
+    <span class="logo-dot"></span>
+    <span class="logo-name">Sirac<em>Labs</em></span>
+  </a>
+  <p>Web · Mobil · Yapay Zeka · Türkiye &amp; Dünya</p>
+  <p>© 2026 SiracLabs. Tüm hakları saklıdır.</p>
+  <p><a href="/">Ana Sayfa</a> · <a href="mailto:hello@siraclabs.com">hello@siraclabs.com</a></p>
+</footer>
+
+<a href="https://wa.me/905524771717?text=Merhaba%20SiracLabs%2C%20T%C3%BCrkiye%27den%20yaz%C4%B1yorum." class="whatsapp-float" target="_blank" rel="noopener" aria-label="WhatsApp'tan Yaz">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.297-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+</a>
+
+</body>
+</html>
