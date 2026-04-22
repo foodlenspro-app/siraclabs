@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- SEO Meta Tags -->
+<title>MCP Server Development | Model Context Protocol | SiracLabs</title>
+<meta name="description" content="Expert MCP (Model Context Protocol) server development. Connect Claude, OpenAI, and other AI models to your tools and data. Custom MCP servers, integration, consulting.">
+<meta name="keywords" content="MCP developer, MCP server development, Model Context Protocol, Anthropic MCP, Claude integration, MCP consulting, AI tool integration, custom MCP server">
+<meta name="author" content="SiracLabs">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://siraclabs.com/mcp-development.html">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://siraclabs.com/mcp-development.html">
+<meta property="og:title" content="MCP Server Development | Model Context Protocol | SiracLabs">
+<meta property="og:description" content="Expert MCP (Model Context Protocol) server development. Connect Claude, OpenAI, and other AI models to your tools and data. Custom MCP servers, integration, consulting.">
+<meta property="og:locale" content="en_US">
+
+<!-- Schema.org Service -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "SiracLabs — MCP Development",
+  "description": "Expert MCP (Model Context Protocol) server development. Connect Claude, OpenAI, and other AI models to your tools and data. Custom MCP servers, integration, consulting.",
+  "url": "https://siraclabs.com/mcp-development.html",
+  "provider": {
+    "@type": "Organization",
+    "name": "SiracLabs",
+    "url": "https://siraclabs.com"
+  },
+  "areaServed": "Worldwide",
+  "priceRange": "$$"
+}
+</script>
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg: #0a0d16;
+  --bg-elevated: #0f131e;
+  --bg-soft: #151a28;
+  --ink: #f5f1e8;
+  --ink-soft: #c9c4b5;
+  --ink-dim: #8a8576;
+  --gold: #e8c878;
+  --gold-bright: #ffd98a;
+  --gold-deep: #c89f47;
+  --teal: #4fc3b8;
+  --teal-bright: #6fd9cf;
+  --whatsapp: #25d366;
+  --line: rgba(245, 241, 232, 0.08);
+  --line-strong: rgba(245, 241, 232, 0.15);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'Geist', sans-serif;
+  line-height: 1.7;
+  overflow-x: hidden;
+  position: relative;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='0.9'/%3E%3CfeColorMatrix values='0 0 0 0 0.9 0 0 0 0 0.85 0 0 0 0 0.7 0 0 0 0.08 0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: 0.4;
+  pointer-events: none;
+  z-index: 1;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: 
+    radial-gradient(circle at 20% 10%, rgba(232, 200, 120, 0.08), transparent 40%),
+    radial-gradient(circle at 80% 60%, rgba(79, 195, 184, 0.06), transparent 40%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 32px;
+  position: relative;
+  z-index: 2;
+}
+
+nav {
+  position: fixed; top: 0; width: 100%; z-index: 50;
+  backdrop-filter: blur(24px);
+  background: rgba(10, 13, 22, 0.7);
+  border-bottom: 1px solid var(--line);
+}
+.nav-inner {
+  max-width: 1200px; margin: 0 auto; padding: 20px 32px;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.logo {
+  font-family: 'Fraunces', serif;
+  font-size: 22px; font-weight: 500;
+  color: var(--ink); text-decoration: none;
+  letter-spacing: -0.3px;
+  display: inline-flex; align-items: center; gap: 10px;
+}
+.logo-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--gold);
+  box-shadow: 0 0 16px var(--gold);
+  animation: pulse 3s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.2); }
+}
+.logo-name { display: inline-flex; align-items: baseline; letter-spacing: -0.5px; }
+.logo em {
+  font-style: italic; color: var(--gold);
+  margin-left: 2px;
+}
+.nav-links {
+  display: flex; gap: 36px; list-style: none;
+}
+.nav-links a {
+  color: var(--ink-soft); text-decoration: none;
+  font-size: 13px; font-weight: 500;
+  font-family: 'Geist Mono', monospace;
+  text-transform: uppercase; letter-spacing: 1px;
+  transition: color 0.3s;
+}
+.nav-links a:hover { color: var(--gold); }
+
+.hero-local {
+  padding: 180px 32px 80px;
+  position: relative;
+  z-index: 2;
+}
+.hero-local .container { text-align: center; }
+.breadcrumb {
+  font-family: 'Geist Mono', monospace;
+  font-size: 12px;
+  color: var(--ink-dim);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 24px;
+}
+.breadcrumb a { color: var(--teal); text-decoration: none; }
+
+h1.hero-title {
+  font-family: 'Fraunces', serif;
+  font-weight: 400;
+  font-size: clamp(36px, 6vw, 68px);
+  line-height: 1.08;
+  letter-spacing: -1.2px;
+  margin-bottom: 24px;
+}
+h1.hero-title em {
+  font-family: 'Instrument Serif', serif;
+  font-style: italic;
+  color: var(--gold);
+  font-weight: 400;
+}
+.hero-subtitle {
+  font-size: 18px;
+  color: var(--ink-soft);
+  max-width: 760px;
+  margin: 0 auto 40px;
+  line-height: 1.6;
+}
+
+.cta-group {
+  display: inline-flex; gap: 16px; flex-wrap: wrap; justify-content: center;
+}
+.btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 14px 26px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-size: 14px; font-weight: 500;
+  font-family: 'Geist Mono', monospace;
+  transition: all 0.3s;
+  border: none; cursor: pointer;
+}
+.btn-whatsapp {
+  background: var(--whatsapp);
+  color: #fff;
+}
+.btn-whatsapp:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(37, 211, 102, 0.3); }
+.btn-whatsapp svg { width: 18px; height: 18px; fill: currentColor; }
+.btn-secondary {
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid var(--line-strong);
+}
+.btn-secondary:hover { border-color: var(--gold); color: var(--gold); }
+
+section.content-section {
+  padding: 80px 32px;
+  position: relative;
+  z-index: 2;
+}
+.section-title {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 400;
+  letter-spacing: -0.5px;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+.section-title em {
+  font-family: 'Instrument Serif', serif;
+  font-style: italic;
+  color: var(--gold);
+}
+.section-lead {
+  font-size: 17px;
+  color: var(--ink-soft);
+  max-width: 780px;
+  margin-bottom: 50px;
+  line-height: 1.7;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+  margin-top: 40px;
+}
+.service-card {
+  background: var(--bg-elevated);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 36px 28px;
+  transition: all 0.4s;
+}
+.service-card:hover {
+  border-color: var(--gold);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+.service-icon {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+.service-card h3 {
+  font-family: 'Fraunces', serif;
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 14px;
+  letter-spacing: -0.3px;
+}
+.service-card p {
+  color: var(--ink-soft);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.portfolio-card {
+  background: var(--bg-elevated);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 32px 28px;
+  margin-bottom: 20px;
+  transition: all 0.4s;
+}
+.portfolio-card:hover {
+  border-color: var(--teal);
+  transform: translateY(-2px);
+}
+.portfolio-card h3 {
+  font-family: 'Fraunces', serif;
+  font-size: 22px;
+  font-weight: 500;
+  margin-bottom: 12px;
+  color: var(--teal-bright);
+}
+.portfolio-card p {
+  color: var(--ink-soft);
+  font-size: 15px;
+  margin-bottom: 14px;
+  line-height: 1.7;
+}
+.portfolio-link {
+  color: var(--gold);
+  text-decoration: none;
+  font-size: 14px;
+  font-family: 'Geist Mono', monospace;
+}
+.portfolio-link:hover { color: var(--gold-bright); }
+
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 32px;
+  margin-top: 40px;
+}
+.why-item {
+  padding: 24px;
+  border-left: 2px solid var(--gold);
+}
+.why-item h3 {
+  font-family: 'Fraunces', serif;
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 10px;
+  color: var(--ink);
+}
+.why-item p {
+  color: var(--ink-soft);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.faq { margin-top: 40px; }
+.faq-item {
+  border-bottom: 1px solid var(--line);
+  padding: 24px 0;
+}
+.faq-item h3 {
+  font-family: 'Fraunces', serif;
+  font-size: 19px;
+  font-weight: 500;
+  margin-bottom: 12px;
+  color: var(--ink);
+}
+.faq-item p {
+  color: var(--ink-soft);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.other-cities {
+  background: var(--bg-elevated);
+  border-radius: 24px;
+  padding: 48px;
+  margin-top: 60px;
+  border: 1px solid var(--line);
+  text-align: center;
+}
+.other-cities h3 {
+  font-family: 'Fraunces', serif;
+  font-size: 26px;
+  font-weight: 400;
+  margin-bottom: 16px;
+}
+.other-cities p {
+  color: var(--ink-soft);
+  margin-bottom: 24px;
+  font-size: 15px;
+}
+.city-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+}
+.city-link {
+  display: inline-block;
+  padding: 10px 18px;
+  background: var(--bg-soft);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--ink-soft);
+  text-decoration: none;
+  font-size: 13px;
+  font-family: 'Geist Mono', monospace;
+  transition: all 0.3s;
+}
+.city-link:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+  transform: translateY(-2px);
+}
+
+.final-cta {
+  background: linear-gradient(135deg, rgba(232, 200, 120, 0.05), rgba(79, 195, 184, 0.05));
+  border: 1px solid var(--line-strong);
+  border-radius: 28px;
+  padding: 60px 40px;
+  text-align: center;
+  margin-top: 60px;
+}
+.final-cta h2 {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(26px, 4vw, 40px);
+  font-weight: 400;
+  margin-bottom: 16px;
+  letter-spacing: -0.5px;
+}
+.final-cta h2 em {
+  font-family: 'Instrument Serif', serif;
+  font-style: italic;
+  color: var(--gold);
+}
+.final-cta p {
+  color: var(--ink-soft);
+  font-size: 16px;
+  margin-bottom: 32px;
+  max-width: 620px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+footer {
+  padding: 60px 32px 40px;
+  border-top: 1px solid var(--line);
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  margin-top: 80px;
+}
+footer .logo {
+  justify-content: center;
+  margin-bottom: 20px;
+}
+footer p {
+  color: var(--ink-dim);
+  font-size: 13px;
+  margin: 4px 0;
+}
+footer a {
+  color: var(--teal);
+  text-decoration: none;
+}
+
+.whatsapp-float {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 60px;
+  height: 60px;
+  background: var(--whatsapp);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4);
+  z-index: 100;
+  transition: transform 0.3s;
+}
+.whatsapp-float:hover { transform: scale(1.1); }
+.whatsapp-float svg { width: 30px; height: 30px; fill: #fff; }
+
+@media (max-width: 640px) {
+  .nav-links { display: none; }
+  .hero-local { padding: 140px 24px 60px; }
+  section.content-section { padding: 60px 24px; }
+  .container { padding: 0 24px; }
+  .other-cities { padding: 32px 24px; }
+  .final-cta { padding: 40px 24px; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="logo">
+      <span class="logo-dot"></span>
+      <span class="logo-name">Sirac<em>Labs</em></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/#services">Services</a></li>
+      <li><a href="/#apps">Apps</a></li>
+      <li><a href="/#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="hero-local">
+  <div class="container">
+    <div class="breadcrumb"><a href="/">Home</a> / Services / MCP Development</div>
+    <h1 class="hero-title">
+      MCP Server <em>development.</em><br>
+      Connect AI to your tools.
+    </h1>
+    <p class="hero-subtitle">Expert Model Context Protocol (MCP) development. Custom MCP servers, integrations, and consulting. The modern way to give AI agents real capabilities — I'm one of the early adopters building production MCP systems.</p>
+    <div class="cta-group">
+      <a href="https://wa.me/905524771717?text=Hello%20SiracLabs%2C%20I%27m%20interested%20in%20your%20services." class="btn btn-whatsapp" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.297-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        Chat on WhatsApp
+      </a>
+      <a href="mailto:hello@siraclabs.com" class="btn btn-secondary">hello@siraclabs.com</a>
+    </div>
+  </div>
+</section>
+
+<section class="content-section">
+  <div class="container">
+    <h2 class="section-title">What MCP is and why it matters<em>.</em></h2>
+    <p class="section-lead">MCP (Model Context Protocol) is Anthropic's open standard for connecting AI models to tools and data sources. Launched in 2024, it's rapidly becoming the industry standard. OpenAI now supports it too.</p>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">🔌</div>
+        <h3>Custom MCP Servers</h3>
+        <p>I build MCP servers that expose your tools, databases, APIs, and workflows to AI agents. Python, TypeScript, or Rust implementations.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🧩</div>
+        <h3>MCP Integrations</h3>
+        <p>Connect Claude Desktop, Claude Code, Cursor, or other MCP-compatible clients to your internal systems. Secure, authenticated, production-ready.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">📚</div>
+        <h3>Tool Design & Schemas</h3>
+        <p>The quality of tools determines the quality of agent behavior. I design tool interfaces that AI uses correctly — with proper schemas, descriptions, error messages.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🛡️</div>
+        <h3>Security & Auth</h3>
+        <p>OAuth, API keys, role-based access. MCP servers that keep your data safe while enabling AI productivity.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">📊</div>
+        <h3>Observability</h3>
+        <p>Logging, metrics, tracing. Know what your AI agents are doing with your tools. Debug issues, optimize performance.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🎓</div>
+        <h3>MCP Consulting</h3>
+        <p>Not sure if MCP is right for you? Architecture review, strategy, vendor selection. Clear guidance from someone who's been building with it from day one.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="content-section" style="background: var(--bg-elevated);">
+  <div class="container">
+    <h2 class="section-title">MCP work I've done<em>.</em></h2>
+    <p class="section-lead">Real MCP implementations in production systems.</p>
+      <div class="portfolio-card">
+        <h3>Internal Tool Integrations</h3>
+        <p>Custom MCP servers connecting Claude to internal databases, REST APIs, and file systems for data science workflows. Used daily in production.</p>
+        
+      </div>
+      <div class="portfolio-card">
+        <h3>AI App Integrations</h3>
+        <p>MCP-based integrations for mobile AI apps — connecting on-device AI to cloud tools, databases, and user data with proper authentication.</p>
+        
+      </div>
+  </div>
+</section>
+
+<section class="content-section">
+  <div class="container">
+    <h2 class="section-title">Why MCP expertise matters<em>.</em></h2>
+    <div class="why-grid">
+      <div class="why-item">
+        <h3>Early Adopter</h3>
+        <p>I've been building with MCP since its early days in late 2024. I understand the protocol, the patterns, and the pitfalls before most developers even knew it existed.</p>
+      </div>
+      <div class="why-item">
+        <h3>Production Focus</h3>
+        <p>Not building weekend demos. I build MCP servers that run in production with proper error handling, observability, and security.</p>
+      </div>
+      <div class="why-item">
+        <h3>Full-Stack Understanding</h3>
+        <p>MCP touches client apps, servers, auth, AI models. I handle all layers — not just the interesting parts.</p>
+      </div>
+      <div class="why-item">
+        <h3>Standard-Driven</h3>
+        <p>I follow the official MCP specifications carefully. Your servers will work with Claude, Cursor, Claude Code, and future MCP clients without modification.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="content-section">
+  <div class="container">
+    <h2 class="section-title">Common questions<em>.</em></h2>
+    <div class="faq">
+      <div class="faq-item">
+        <h3>What exactly is MCP?</h3>
+        <p>Model Context Protocol is an open standard Anthropic launched in 2024 for connecting AI models to tools and data. Think USB-C for AI — a universal connector. Instead of every AI model having custom integrations, MCP gives them a standard way to call tools, read resources, and execute workflows. OpenAI now supports it. It's becoming the industry standard.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Do I need MCP or can I just use function calling?</h3>
+        <p>Function calling (OpenAI) and tool use (Claude) are LLM-specific. MCP is a layer above that — a standard protocol. Use plain function calling if you're building one integration for one model. Use MCP if you want (1) reusability across AI models, (2) official MCP clients like Claude Desktop to use your tools, (3) future-proofing as the ecosystem standardizes.</p>
+      </div>
+      <div class="faq-item">
+        <h3>What does an MCP server cost to build?</h3>
+        <p>Simple server exposing 3-5 tools: $2,000-5,000. Production-grade server with auth, observability, multiple data sources: $10,000-30,000. Enterprise MCP gateway with advanced features: $30,000-100,000+.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Who can connect to my MCP server?</h3>
+        <p>Any MCP-compatible client: Claude Desktop, Claude Code, Cursor, and increasingly others. You control authentication and access. Your server can be internal (for your team) or public (for customers).</p>
+      </div>
+      <div class="faq-item">
+        <h3>Is MCP secure for sensitive data?</h3>
+        <p>It can be, when designed properly. I implement OAuth 2.1, proper token scoping, audit logging, rate limiting. For highly sensitive data, I recommend self-hosted MCP servers with strict access controls. I'll design an architecture that matches your security requirements.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="content-section">
+  <div class="container">
+    <div class="final-cta">
+      <h2>Get MCP integration right<em>.</em></h2>
+      <p>Free consultation on whether MCP fits your needs. Architecture review, protocol overview, build estimate. Clear guidance from someone deeply invested in the protocol.</p>
+      <div class="cta-group">
+        <a href="https://wa.me/905524771717?text=Hello%20SiracLabs%2C%20I%27m%20interested%20in%20your%20services." class="btn btn-whatsapp" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.297-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+          Chat on WhatsApp
+        </a>
+        <a href="mailto:hello@siraclabs.com" class="btn btn-secondary">hello@siraclabs.com</a>
+      </div>
+    </div>
+
+    <div class="other-cities">
+      <h3>Other specialized services</h3>
+      <p>Explore more of what I offer:</p>
+      <div class="city-links">
+        <a href="/flutter-developer.html" class="city-link">Flutter Developer</a>
+        <a href="/agentic-ai-developer.html" class="city-link">Agentic AI Developer</a>
+        <a href="/llm-integration.html" class="city-link">LLM Integration</a>
+        <a href="/ai-copilot-services.html" class="city-link">AI Copilot Services</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <a href="/" class="logo">
+    <span class="logo-dot"></span>
+    <span class="logo-name">Sirac<em>Labs</em></span>
+  </a>
+  <p>Websites · Apps · AI · Worldwide</p>
+  <p>© 2026 SiracLabs. All rights reserved.</p>
+  <p><a href="/">Home</a> · <a href="mailto:hello@siraclabs.com">hello@siraclabs.com</a></p>
+</footer>
+
+<a href="https://wa.me/905524771717?text=Hello%20SiracLabs%2C%20I%27m%20interested%20in%20your%20services." class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.297-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+</a>
+
+</body>
+</html>
