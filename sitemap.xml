@@ -94,6 +94,18 @@
 
   <!-- Global English Service Pages -->
   <url>
+    <loc>https://siraclabs.com/web-design.html</loc>
+    <lastmod>2026-04-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://siraclabs.com/mobile-app-development.html</loc>
+    <lastmod>2026-04-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
     <loc>https://siraclabs.com/flutter-developer.html</loc>
     <lastmod>2026-04-22</lastmod>
     <changefreq>monthly</changefreq>
